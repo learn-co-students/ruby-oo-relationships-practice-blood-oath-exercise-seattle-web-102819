@@ -22,7 +22,13 @@ follower4 = Follower.new("pat", 25, "floo")
 
 bo1 = BloodOath.new(follower1, cult1, "2019-10-31")
 bo2 = BloodOath.new(follower2, cult2, "2019-10-30")
-bo3 = BloodOath.new(follower2, cult1, "2019-10-29")
+bo3 = BloodOath.new(follower2, cult1, "2019-9-29")
+bo4 = BloodOath.new(follower3, cult1, "2019-1-29")
+bo5 = BloodOath.new(follower2, cult3, "2019-11-29")
+bo6 = BloodOath.new(follower4, cult1, "2019-8-29")
+bo7 = BloodOath.new(follower4, cult3, "2019-4-29")
+bo8 = BloodOath.new(follower3, cult2, "2019-2-29")
+
 
 binding.pry
 0

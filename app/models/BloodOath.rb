@@ -1,3 +1,4 @@
+require 'Time'
 class BloodOath
     @@all = []
     attr_accessor :follower, :cult, :initiation_date
@@ -11,4 +12,12 @@ class BloodOath
     def self.all
         @@all 
     end 
+
+    def self.first_oath
+        sorted = @@all.sort_by do |oath|
+            Time.parse(oath.initiation_date)
+        end
+        sorted[0].follower
+    end
+
 end

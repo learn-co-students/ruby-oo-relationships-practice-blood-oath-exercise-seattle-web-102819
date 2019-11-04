@@ -37,6 +37,55 @@ class Cult
         @@all.select {|cult| cult.founding_year == year}
     end
 
+    def average_age
+        ages = []
+        BloodOath.all.each do |bo| 
+            if bo.cult == self
+                ages << bo.follower.age
+            end
+        end
+        sum = ages.reduce(:+).to_f 
+        total = ages.length.to_f
+        avg = sum/total
+    end
+
+    def my_followers_mottos
+        mottos = []
+        BloodOath.all.each do |bo| 
+            if bo.cult == self
+                mottos << bo.follower.life_motto
+            end
+        end
+        puts mottos
+        mottos
+    end
+
+    def self.least_popular
+        min = 1000000000
+        loser = []
+        @@all.each do |cult|
+            if cult.cult_population < min
+                loser.replace([cult])
+                min = cult.cult_population
+            elsif cult.cult_population == min
+                loser << cult
+            end
+        end
+        loser
+    end
+
+    def self.most_common_location
+        max = 0
+        most_common = nil
+        @@all.each do |cult|
+            if Cult.find_by_location(cult.location).length > max
+                most_common = cult.location
+                max = Cult.find_by_location(cult.location).length
+            end
+        end
+        most_common
+    end 
+
 
 
 
