@@ -10,3 +10,19 @@ end
 binding.pry
 
 puts "Mwahahaha!" # just in case pry is buggy and exits
+
+
+cult1 = Cult.new("FI", "florida", 1919, "boo")
+cult2 = Cult.new("microsoft", "seattle", 1990, "blah")
+cult3 = Cult.new("apple", "florida", 1920, "po")
+follower1 = Follower.new("bob", 45, "poop")
+follower2 = Follower.new("pat", 40, "floo")
+follower3 = Follower.new("pat", 35, "floo")
+follower4 = Follower.new("pat", 25, "floo")
+
+bo1 = BloodOath.new(follower1, cult1, "2019-10-31")
+bo2 = BloodOath.new(follower2, cult2, "2019-10-30")
+bo3 = BloodOath.new(follower2, cult1, "2019-10-29")
+
+binding.pry
+0
